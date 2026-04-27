@@ -1,3 +1,3 @@
 Its just a blog web app...
 
-Made in using next.js, react, and mongodb 🤓
+Made with using next.js, react, and mongodb 🤓
