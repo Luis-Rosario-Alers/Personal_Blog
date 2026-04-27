@@ -1,16 +1,46 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
+  --background: #052f5fff;
   --foreground: #171717;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary-dark: #052f5fff;
+  --color-secondary-dark: #005377ff;
+  --color-accent-dark: #06a77dff;
+  --color-surface-dark: #d5c67aff;
+  --color-attention: #f1a208ff;
 }
+
+/* still requires dark colors */
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+  a {
+    @apply hover:text-accent-dark;
+  }
+  .Site-Navigation {
+    @apply flex flex-row pl-10 pr-10 pt-5 gap-10 justify-center py-4 mx-auto;
+  }
+  .Site-Navigation a {
+    @apply text-xl font-medium hover:underline;
+  }
+}
+
+@layer components {
+  .content {
+    @apply font-serif prose prose-invert dark:prose-invert prose-lg max-w-3xl leading-relaxed;
+  }
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -20,7 +50,8 @@
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
