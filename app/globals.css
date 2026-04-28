@@ -8,7 +8,16 @@
   --foreground: #171717;
 }
 
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
+  --font-jetbrains: "JetBrains Mono", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -37,7 +46,7 @@
 
 @layer components {
   .content {
-    @apply font-serif prose prose-invert dark:prose-invert prose-lg max-w-3xl leading-relaxed;
+    @apply font-serif text-white prose prose-invert dark:prose-invert prose-lg max-w-3xl leading-relaxed text-justify;
   }
 }
 

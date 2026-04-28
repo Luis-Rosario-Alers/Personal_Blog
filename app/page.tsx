@@ -5,9 +5,14 @@ export default async function Home(){
 
   return (
       <div className="grid gap-8 max-w-6xl mx-auto mt-10 justify-center">
-          <div className={"flex flex-col gap-8 justify-center items-center"}>
+          <div className={"flex flex-col grow gap-8 justify-center items-center"}>
               <FeaturedPost/>
-              <div className={"font-serif flex-row flex justify-start text-2xl gap-1"}>Want <i className={"decoration-attention underline"}>more?</i></div>
+              <p className="font-serif text-2xl text-center mt-14">
+                  Want{" "}
+                  <span className="italic underline decoration-attention">
+                      more?
+                  </span>
+              </p>
               <BlogList/>
           </div>
       </div>

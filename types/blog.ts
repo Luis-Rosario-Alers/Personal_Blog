@@ -6,9 +6,9 @@ export type Blog = {
     description?: string;
     content?: string;
     genre?: string;
-    createdAt: Date;
+    createdAt: string;
     slug: string;
-    tags?: string[];
+    tags: string[];
 };
 
 export function formatBlog(blog){
@@ -18,7 +18,7 @@ export function formatBlog(blog){
         description: blog.description,
         content: blog.content,
         genre: blog.genre,
-        createdAt: new Date(blog.createdAt),
+        createdAt: new Date(blog.createdAt).toDateString().split(" ").splice(1).join(" "),
         slug: blog.slug,
         tags: blog.tags.split(","),
     }

@@ -24,7 +24,7 @@ export default async function BlogList({limit}: BlogListProps) {
 
 
     return (
-        <div className="flex flex-col gap-4 ">
+        <div className="flex flex-col gap-4 max-w-prose m-auto">
             <div className="flex flex-col gap-3 ">
                 {formattedBlogs.map((blog) => (
                     <BlogCard key={blog._id} blog={blog} />

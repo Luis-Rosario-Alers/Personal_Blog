@@ -5,16 +5,15 @@ import Tag from "@/app/components/Tag";
 
 export default async function BlogPost({blog}: {blog: Blog}){
     const html = await marked(blog.content ?? "");
-    const timestamp = new Date(blog.createdAt).toDateString();
 
     return(
-        <div className={"content"}>
-            <h1>
+        <div>
+            <h1 className={"mb-2 font-serif text-4xl font-bold leading-tight tracking-normal text-white whitespace-nowrap"}>
                 {blog.title}
-                <div className={"flex flex-row gap-1"}>{blog.tags.map((tag) => <Tag key={tag} tag_name={tag}/>)}</div>
-                <div className={"font-normal italic prose-stone opacity-50 text-sm"}>Posted: {timestamp}</div>
+                <div className={"prose-stone opacity-50 text-sm font-jetbrains"}>Posted: {blog.createdAt} • <span>{blog.genre}</span></div>
+                <div className={"flex flex-row gap-1 mt-1"}>{blog.tags.map((tag) => <Tag key={tag} tag_name={tag}/>)}</div>
             </h1>
-            <div dangerouslySetInnerHTML={{ __html : html }}
+            <div className={"content"} dangerouslySetInnerHTML={{ __html : html }}
             />
         </div>
     );
