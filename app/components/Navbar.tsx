@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar(){
     return(
-        <nav className={"Site-Navigation"}>
+        <nav className={"Site-Navigation uppercase tracking-widest text-lg text-slate-400"}>
             <Link href={"/"}>home</Link>
             <Link href={"/about"}>about me</Link>
             <Link href={"/blog"}>blog</Link>

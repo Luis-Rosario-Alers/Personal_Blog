@@ -7,24 +7,27 @@ type BlogCardProps = {
 };
 
 export default function BlogCard({ blog }: BlogCardProps) {
-
     return (
-        <Link
-            href={`/blog/${blog.slug}`}
-            className="group rounded-md border border-l-4 border-gray-500 border-l-transparent bg-secondary-dark p-6 transition hover:border-accent-dark hover:border-l-accent-dark hover:text-foreground hover:shadow-[0_0_12px_#06a77d]"
-        >
-            <article className="p-3">
+        <article className="group relative rounded-md border border-l-4 border-gray-500 border-l-transparent bg-secondary-dark p-6 transition hover:border-accent-dark hover:border-l-accent-dark hover:text-foreground hover:shadow-[0_0_12px_#06a77d]">
+            <Link
+                href={`/blog/${blog.slug}`}
+                className="absolute inset-0 z-0 rounded-md"
+                aria-label={`Read ${blog.title}`}
+            />
+
+            <div className="relative z-10 p-3">
                 <h3 className="font-serif text-xl font-semibold transition-colors duration-200 group-hover:text-accent-dark brightness-105">
                     {blog.title}
                 </h3>
 
                 <div className="flex flex-wrap items-center gap-1 font-jetbrains prose-stone text-xs">
-                    <span className={"opacity-50"}>Posted: {blog.createdAt}</span>
+                    <span className="opacity-50">Posted: {blog.createdAt}</span>
                     <span aria-hidden="true">•</span>
-                    <span className={"opacity-50"}>{blog.genre}</span>
-                    <span className="flex flex-wrap items-center">
+                    <span className="opacity-50">{blog.genre}</span>
+                    <span aria-hidden="true">•</span>
+                    <span className="relative z-20 flex flex-wrap items-center">
                         {blog.tags.map((tag) => (
-                            <Tag key={tag} tag_name={tag} variant={"cutout"}/>
+                            <Tag key={tag} tag_name={tag} variant="cutout" />
                         ))}
                     </span>
                 </div>
@@ -34,7 +37,7 @@ export default function BlogCard({ blog }: BlogCardProps) {
                         {blog.description}
                     </p>
                 )}
-            </article>
-        </Link>
+            </div>
+        </article>
     );
 }
