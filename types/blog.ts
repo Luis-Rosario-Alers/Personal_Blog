@@ -20,7 +20,7 @@ export function formatBlog(blog){
         genre: blog.genre,
         createdAt: new Date(blog.createdAt).toDateString().split(" ").splice(1).join(" "),
         slug: blog.slug,
-        tags: blog.tags.split(","),
+        tags: blog.tags,
     }
     return formattedBlog;
 }
